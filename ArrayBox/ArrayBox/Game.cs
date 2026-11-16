@@ -20,7 +20,7 @@ namespace MohawkGame2D
         // A rectangle is a position and size. A point is just a position.
         // These values can be anything you wish.
 
-        Grid[,] Draws = new Grid[40,40];
+        Grid[,] Draws = new Grid[20,20];
         
 
         public void Setup()
@@ -33,8 +33,8 @@ namespace MohawkGame2D
                 {
                     
                     Draws[i,j] = new Grid();
-                    Draws[i, j].squarePosition.X += i * 10;
-                    Draws[i, j].squarePosition.Y += j * 10;
+                    Draws[i, j].squarePosition.X += i * 20;
+                    Draws[i, j].squarePosition.Y += j * 20;
                     //Draws[i, j].Setup();
                 }
             }

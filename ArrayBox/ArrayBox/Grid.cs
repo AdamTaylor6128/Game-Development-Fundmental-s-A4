@@ -11,7 +11,11 @@ namespace MohawkGame2D
     internal class Grid
     {
         public Vector2 squarePosition = new Vector2(0,0);
-        public Vector2 squareSize = new Vector2(10, 10);
+        public Vector2 squareSize = new Vector2(20, 20);
+
+        bool first = false;
+        bool second = false;
+        Color fill = Color.Blue;
 
         Vector2 point;
      
@@ -30,22 +34,30 @@ namespace MohawkGame2D
             // We can combine these two results into one
             bool isWithinRectangle = isWithinX && isWithinY;
 
-            if (isWithinRectangle == true)
+            if (isWithinRectangle == true && second == false)
             {
 
-                Draw.SetFillColor(Color.Red);
-                
-                Draw.Square(squarePosition, squareSize.X);
+                fill = Color.Red;
+               
+
+                first = true;
             }
-            else
+            else if(isWithinRectangle == false && first == true)
             {
-                Draw.SetFillColor(Color.Blue);
-             
-                Draw.Square(squarePosition, squareSize.X);
+                second = true;
+                fill = Color.Red;
+
             }
+            else if(isWithinRectangle == true && second == true)
+            {
+                first = false;
+                fill = Color.Green;
 
-
+            }
           
+            Draw.SetFillColor(fill);
+            Draw.Square(squarePosition, squareSize.X);
+
         }
     }
 }
