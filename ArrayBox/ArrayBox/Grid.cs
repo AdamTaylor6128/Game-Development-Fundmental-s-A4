@@ -17,13 +17,13 @@ namespace MohawkGame2D
         bool second = false;
         Color fill = Color.Blue;
 
-        Vector2 point;
+        public Vector2 point;
      
 
   
         public void SquareDraw()
         {
-            point = Input.GetMousePosition();
+           
             float leftEdge = squarePosition.X;
             float rightEdge = squarePosition.X + squareSize.X;
             float topEdge = squarePosition.Y;
