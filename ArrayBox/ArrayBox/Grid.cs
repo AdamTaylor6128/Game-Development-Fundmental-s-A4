@@ -28,12 +28,20 @@ namespace MohawkGame2D
             float rightEdge = squarePosition.X + squareSize.X;
             float topEdge = squarePosition.Y;
             float bottomEdge = squarePosition.Y + squareSize.X;
+            // Check each side and see if player is out-of-bounds
+
+
+            
+
+
             // We need to check against all for edges
             bool isWithinX = point.X > leftEdge && point.X < rightEdge;
             bool isWithinY = point.Y > topEdge && point.Y < bottomEdge;
             // We can combine these two results into one
             bool isWithinRectangle = isWithinX && isWithinY;
 
+           
+            
             if (isWithinRectangle == true && second == false)
             {
 
@@ -56,8 +64,13 @@ namespace MohawkGame2D
             }
           
             Draw.SetFillColor(fill);
+            Draw.SetLineSize(1);
             Draw.Square(squarePosition, squareSize.X);
 
         }
+
+      
+
+
     }
 }

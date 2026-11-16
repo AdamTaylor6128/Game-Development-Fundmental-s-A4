@@ -51,6 +51,7 @@ namespace MohawkGame2D
             {
                 for (int j = 0; j < grid.GetLength(1); j++)
                 {
+                    tron.bounds();
                     tron.Movment();
                     grid[i, j].point = tron.position;
                     grid[i, j].SquareDraw();
