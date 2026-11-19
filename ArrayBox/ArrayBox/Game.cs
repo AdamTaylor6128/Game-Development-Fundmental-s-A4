@@ -24,6 +24,8 @@ namespace MohawkGame2D
         Player tron = new Player();
         Screens screen = new Screens();
 
+        bool GameOver = false;
+
         public void Setup()
         {
             Window.SetSize(400, 400);
@@ -46,37 +48,39 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-
-          
-
-            screen.GameOver();
-        }
-
- 
-        public void GameField()
-        {
-           
             for (int i = 0; i < grid.GetLength(0); i++)
             {
                 for (int j = 0; j < grid.GetLength(1); j++)
                 {
+
                     tron.bounds();
-                    tron.Movment();
-                    grid[i, j].point = tron.position;
+
                     grid[i, j].SquareDraw();
 
+                    if (tron.bounds() == true || grid[i, j].hit == true)
+                    {
 
-                    tron.DrawBike();
+                        Window.ClearBackground(0);
+                        screen.GameOver();
+                        tron.speed = new Vector2(0, 0);
+                    }
+
+                    else if(GameOver==false)
+                    {
+                        
+                        tron.Movment();
+                        grid[i, j].point = tron.position;
+                     
+                        tron.DrawBike();
+                    }
+                   
 
 
                 }
             }
 
+          
         }
-
-
-
-
 
 
     }

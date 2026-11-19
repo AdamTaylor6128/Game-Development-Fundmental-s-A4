@@ -7,7 +7,7 @@ namespace MohawkGame2D
 {
     internal class Screens
     {
-        Font byteBounc = Text.LoadFont("\\..\\..\\taylo\\source\\repos\\Game-Development-Fundmental-s-A5\\ArrayBox\\Assets\\ByteBounce.ttf");
+        Font byteBounc = Text.LoadFont("\\..\\..\\..\\source\\repos\\Game-Development-Fundmental-s-A5\\ArrayBox\\Assets\\ByteBounce.ttf");
         
 
         public void Start()
@@ -20,7 +20,7 @@ namespace MohawkGame2D
         }
         public void GameOver()
         {
-
+            Text.Color = Color.Red;
             Text.Font = byteBounc;
             Window.ClearBackground(244);
             Vector2 position = Vector2.One * 5;

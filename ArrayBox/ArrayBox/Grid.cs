@@ -14,8 +14,10 @@ namespace MohawkGame2D
         public Vector2 squareSize = new Vector2(10, 10);
 
         bool first = false;
-        bool second = false;
-        Color fill = Color.Black;
+        bool collision = false;
+
+        public bool hit = false;
+        Color fill = Color.Blue;
 
         public Vector2 point;
      
@@ -40,9 +42,11 @@ namespace MohawkGame2D
             // We can combine these two results into one
             bool isWithinRectangle = isWithinX && isWithinY;
 
-           
-            
-            if (isWithinRectangle == true && second == false)
+            Draw.SetFillColor(fill);
+            Draw.SetLineSize(1);
+            Draw.Square(squarePosition, squareSize.X);
+
+            if (isWithinRectangle == true && collision == false)
             {
 
                 fill = Color.Red;
@@ -52,20 +56,19 @@ namespace MohawkGame2D
             }
             else if(isWithinRectangle == false && first == true)
             {
-                second = true;
+                collision = true;
                 fill = Color.Red;
 
             }
-            else if(isWithinRectangle == true && second == true)
+            else if(isWithinRectangle == true && collision == true)
             {
                 first = false;
+                hit = true;
                 fill = Color.Green;
-
+                Window.ClearBackground(0);
             }
           
-            Draw.SetFillColor(fill);
-            Draw.SetLineSize(1);
-            Draw.Square(squarePosition, squareSize.X);
+            
 
         }
 

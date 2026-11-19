@@ -13,7 +13,7 @@ namespace MohawkGame2D
 
         public Vector2 position = new Vector2(200, 200);
 
-        Vector2 speed = new Vector2(-1,0);
+        public Vector2 speed = new Vector2(-1,0);
 
         public Vector2 motion;
 
@@ -54,7 +54,7 @@ namespace MohawkGame2D
 
         }
 
-        public void bounds()
+        public bool bounds()
         {
             float playerLeftEdge = position.X;
             float playerRightEdge = position.X;
@@ -68,11 +68,14 @@ namespace MohawkGame2D
             bool isBelowWindow = playerBottomEdge >= Window.Height; // bottom check
             if (isLeftOfWindow == true || isRightOfWindow == true || isAboveWindow == true || isBelowWindow == true)
             {
-                position = new Vector2(200, 200);
+                return true;
 
             }
 
-
+            else
+            {
+                return false;
+            }
         }
 
     }
