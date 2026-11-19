@@ -19,14 +19,14 @@ namespace MohawkGame2D
 
         public void DrawBike()
         {
-
-            Draw.Circle(position, 4);
+            Draw.SetFillColor(Color.White);
+            Draw.Circle(position, 1);
         }
 
 
         public void Movment()
         {
-            Vector2 motion = speed * (Time.DeltaTime * 0.4f);
+            Vector2 motion = speed * (Time.DeltaTime * 0.1f);
 
             position += motion;
             

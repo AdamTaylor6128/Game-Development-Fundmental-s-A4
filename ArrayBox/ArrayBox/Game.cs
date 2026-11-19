@@ -20,8 +20,9 @@ namespace MohawkGame2D
         // A rectangle is a position and size. A point is just a position.
         // These values can be anything you wish.
 
-        Grid[,] grid = new Grid[20,20];
+        Grid[,] grid = new Grid[40,40];
         Player tron = new Player();
+        Screens screen = new Screens();
 
         public void Setup()
         {
@@ -33,8 +34,8 @@ namespace MohawkGame2D
                 {
                     
                     grid[i,j] = new Grid();
-                    grid[i, j].squarePosition.X += i * 20;
-                    grid[i, j].squarePosition.Y += j * 20;
+                    grid[i, j].squarePosition.X += i * 10;
+                    grid[i, j].squarePosition.Y += j * 10;
                     //grid[i, j].Setup();
                 }
             }
@@ -45,8 +46,16 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-            
-            
+
+          
+
+            screen.GameOver();
+        }
+
+ 
+        public void GameField()
+        {
+           
             for (int i = 0; i < grid.GetLength(0); i++)
             {
                 for (int j = 0; j < grid.GetLength(1); j++)
@@ -55,19 +64,21 @@ namespace MohawkGame2D
                     tron.Movment();
                     grid[i, j].point = tron.position;
                     grid[i, j].SquareDraw();
+
+
                     tron.DrawBike();
-                    
+
 
                 }
             }
 
         }
-        
 
-      
-    
-    
-    
+
+
+
+
+
     }
 
 }

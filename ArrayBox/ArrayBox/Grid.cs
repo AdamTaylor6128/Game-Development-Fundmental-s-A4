@@ -11,11 +11,11 @@ namespace MohawkGame2D
     internal class Grid
     {
         public Vector2 squarePosition = new Vector2(0,0);
-        public Vector2 squareSize = new Vector2(20, 20);
+        public Vector2 squareSize = new Vector2(10, 10);
 
         bool first = false;
         bool second = false;
-        Color fill = Color.Blue;
+        Color fill = Color.Black;
 
         public Vector2 point;
      
