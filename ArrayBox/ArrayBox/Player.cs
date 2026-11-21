@@ -17,6 +17,7 @@ namespace MohawkGame2D
 
         public Vector2 motion;
 
+        //Draws the players 
         public void DrawBike()
         {
             Draw.SetFillColor(Color.White);
@@ -24,9 +25,10 @@ namespace MohawkGame2D
         }
 
 
+        //Movment controls for the player
         public void Movment()
         {
-            Vector2 motion = speed * (Time.DeltaTime * 0.1f);
+            Vector2 motion = speed * (Time.DeltaTime * 0.2f);
 
             position += motion;
             
@@ -54,6 +56,7 @@ namespace MohawkGame2D
 
         }
 
+        //Returns if the player is outside of the bounds of the game
         public bool bounds()
         {
             float playerLeftEdge = position.X;

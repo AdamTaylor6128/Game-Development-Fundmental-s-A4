@@ -15,14 +15,15 @@ namespace MohawkGame2D
 
         bool first = false;
         bool collision = false;
-
+        int opacity = 100;
+        //Returns true if the player is able to be hit
         public bool hit = false;
-        Color fill = Color.Blue;
+        Color trail = Color.Blue;
 
         public Vector2 point;
      
 
-  
+        //Detects the collision of the character
         public void SquareDraw()
         {
            
@@ -42,33 +43,34 @@ namespace MohawkGame2D
             // We can combine these two results into one
             bool isWithinRectangle = isWithinX && isWithinY;
 
-            Draw.SetFillColor(fill);
-            Draw.SetLineSize(1);
-            Draw.Square(squarePosition, squareSize.X);
 
+            Draw.SetFillColor(5, opacity);
             if (isWithinRectangle == true && collision == false)
             {
 
-                fill = Color.Red;
-               
+                trail = Color.Red;
+                Draw.SetFillColor(trail);
 
                 first = true;
             }
             else if(isWithinRectangle == false && first == true)
             {
                 collision = true;
-                fill = Color.Red;
-
+                trail = Color.Red;
+                Draw.SetFillColor(trail);
             }
             else if(isWithinRectangle == true && collision == true)
             {
                 first = false;
                 hit = true;
-                fill = Color.Green;
+                
                 Window.ClearBackground(0);
             }
-          
             
+           
+            Draw.SetLineSize(1);
+            Draw.Square(squarePosition, squareSize.X);
+
 
         }
 
